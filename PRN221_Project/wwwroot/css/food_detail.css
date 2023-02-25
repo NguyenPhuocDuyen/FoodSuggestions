@@ -1,0 +1,520 @@
+﻿@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700,400|Titillium+Web:400,600,700,300);
+
+* {
+    box-sizing: border-box;
+}
+
+::-webkit-input-placeholder {
+    color: #e4e4e4;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #e5e5e5;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.wrapper {
+    position: relative;
+    width: 850px;
+    height: 500px;
+    margin: 100px auto;
+    background: url('https://images.everydayhealth.com/images/diet-nutrition/34da4c4e-82c3-47d7-953d-121945eada1e00-giveitup-unhealthyfood.jpg?sfvrsn=a31d8d32_0');
+    background-position: 90% 50%;
+    box-shadow: 0 5px 5px rgba(55, 55, 55, .4);
+}
+
+    .wrapper .name {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+        color: #fff;
+        font-size: 55px;
+        word-wrap: wrap;
+        padding: 10px;
+        font-family: 'Titillium Web', sans-serif;
+        transition: all 0.4s ease-in-out;
+    }
+
+        .wrapper .name:hover {
+            cursor: default;
+            transform: translateX(-20px);
+        }
+
+        .wrapper .name:first-letter {
+            font-size: 100px;
+        }
+
+.content {
+    position: absolute;
+    right: 20px;
+    top: -50px;
+    width: 400px;
+    height: 120%;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(55, 55, 55, .3);
+    border-radius: 5px;
+}
+
+    .content h2 {
+        color: #444;
+        font-size: 26px;
+    }
+
+    .content p {
+        color: #999;
+    }
+
+    .content .links {
+        margin: 30px 0px 50px;
+    }
+
+        .content .links a {
+            display: block;
+            margin: 10px 0;
+            font-size: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+            .content .links a:before {
+                font-family: "FontAwesome";
+                content: '\f0c1';
+                font-size: 11px;
+                padding-right: 10px;
+            }
+
+            .content .links a.location:before {
+                content: '\f124';
+            }
+
+    .content .stats {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+        .content .stats .num {
+            font-size: 25px;
+            letter-spacing: 2px;
+        }
+
+        .content .stats .text {
+            color: #999;
+        }
+
+.feedback_form {
+    padding: 0 2rem;
+}
+
+.feedback {
+    --normal: #eceaf3;
+    --normal-shadow: #d9d8e3;
+    --normal-mouth: #9795a4;
+    --normal-eye: #595861;
+    --active: #f8da69;
+    --active-shadow: #f4b555;
+    --active-mouth: #f05136;
+    --active-eye: #313036;
+    --active-tear: #76b5e7;
+    --active-shadow-angry: #e94f1d;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+    .feedback li {
+        position: relative;
+        border-radius: 50%;
+        background: var(--sb, var(--normal));
+        box-shadow: inset 3px -3px 4px var(--sh, var(--normal-shadow));
+        transition: background 0.4s, box-shadow 0.4s, transform 0.3s;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+        .feedback li:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        .feedback li div {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            transform: perspective(240px) translateZ(4px);
+        }
+
+            .feedback li div svg, .feedback li div:before, .feedback li div:after {
+                display: block;
+                position: absolute;
+                left: var(--l, 9px);
+                top: var(--t, 13px);
+                width: var(--w, 8px);
+                height: var(--h, 2px);
+                transform: rotate(var(--r, 0deg)) scale(var(--sc, 1)) translateZ(0);
+            }
+
+            .feedback li div svg {
+                fill: none;
+                stroke: var(--s);
+                stroke-width: 2px;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                transition: stroke 0.4s;
+            }
+
+                .feedback li div svg.eye {
+                    --s: var(--e, var(--normal-eye));
+                    --t: 17px;
+                    --w: 7px;
+                    --h: 4px;
+                }
+
+                    .feedback li div svg.eye.right {
+                        --l: 23px;
+                    }
+
+                .feedback li div svg.mouth {
+                    --s: var(--m, var(--normal-mouth));
+                    --l: 11px;
+                    --t: 23px;
+                    --w: 18px;
+                    --h: 7px;
+                }
+
+            .feedback li div:before, .feedback li div:after {
+                content: '';
+                z-index: var(--zi, 1);
+                border-radius: var(--br, 1px);
+                background: var(--b, var(--e, var(--normal-eye)));
+                transition: background 0.4s;
+            }
+
+        .feedback li.angry {
+            --step-1-rx: -24deg;
+            --step-1-ry: 20deg;
+            --step-2-rx: -24deg;
+            --step-2-ry: -20deg;
+        }
+
+            .feedback li.angry div:before {
+                --r: 20deg;
+            }
+
+            .feedback li.angry div:after {
+                --l: 23px;
+                --r: -20deg;
+            }
+
+            .feedback li.angry div svg.eye {
+                stroke-dasharray: 4.55;
+                stroke-dashoffset: 8.15;
+            }
+
+            .feedback li.angry.active {
+                animation: angry 1s linear;
+            }
+
+                .feedback li.angry.active div:before {
+                    --middle-y: -2px;
+                    --middle-r: 22deg;
+                    animation: toggle 0.8s linear forwards;
+                }
+
+                .feedback li.angry.active div:after {
+                    --middle-y: 1px;
+                    --middle-r: -18deg;
+                    animation: toggle 0.8s linear forwards;
+                }
+
+        .feedback li.sad {
+            --step-1-rx: 20deg;
+            --step-1-ry: -12deg;
+            --step-2-rx: -18deg;
+            --step-2-ry: 14deg;
+        }
+
+            .feedback li.sad div:before, .feedback li.sad div:after {
+                --b: var(--active-tear);
+                --sc: 0;
+                --w: 5px;
+                --h: 5px;
+                --t: 15px;
+                --br: 50%;
+            }
+
+            .feedback li.sad div:after {
+                --l: 25px;
+            }
+
+            .feedback li.sad div svg.eye {
+                --t: 16px;
+            }
+
+            .feedback li.sad div svg.mouth {
+                --t: 24px;
+                stroke-dasharray: 9.5;
+                stroke-dashoffset: 33.25;
+            }
+
+            .feedback li.sad.active div:before, .feedback li.sad.active div:after {
+                animation: tear 0.6s linear forwards;
+            }
+
+        .feedback li.ok {
+            --step-1-rx: 4deg;
+            --step-1-ry: -22deg;
+            --step-1-rz: 6deg;
+            --step-2-rx: 4deg;
+            --step-2-ry: 22deg;
+            --step-2-rz: -6deg;
+        }
+
+            .feedback li.ok div:before {
+                --l: 12px;
+                --t: 17px;
+                --h: 4px;
+                --w: 4px;
+                --br: 50%;
+                box-shadow: 12px 0 0 var(--e, var(--normal-eye));
+            }
+
+            .feedback li.ok div:after {
+                --l: 13px;
+                --t: 26px;
+                --w: 14px;
+                --h: 2px;
+                --br: 1px;
+                --b: var(--m, var(--normal-mouth));
+            }
+
+            .feedback li.ok.active div:before {
+                --middle-s-y: 0.35;
+                animation: toggle 0.2s linear forwards;
+            }
+
+            .feedback li.ok.active div:after {
+                --middle-s-x: 0.5;
+                animation: toggle 0.7s linear forwards;
+            }
+
+        .feedback li.good {
+            --step-1-rx: -14deg;
+            --step-1-rz: 10deg;
+            --step-2-rx: 10deg;
+            --step-2-rz: -8deg;
+        }
+
+            .feedback li.good div:before {
+                --b: var(--m, var(--normal-mouth));
+                --w: 5px;
+                --h: 5px;
+                --br: 50%;
+                --t: 22px;
+                --zi: 0;
+                opacity: 0.5;
+                box-shadow: 16px 0 0 var(--b);
+                filter: blur(2px);
+            }
+
+            .feedback li.good div:after {
+                --sc: 0;
+            }
+
+            .feedback li.good div svg.eye {
+                --t: 15px;
+                --sc: -1;
+                stroke-dasharray: 4.55;
+                stroke-dashoffset: 8.15;
+            }
+
+            .feedback li.good div svg.mouth {
+                --t: 22px;
+                --sc: -1;
+                stroke-dasharray: 13.3;
+                stroke-dashoffset: 23.75;
+            }
+
+            .feedback li.good.active div svg.mouth {
+                --middle-y: 1px;
+                --middle-s: -1;
+                animation: toggle 0.8s linear forwards;
+            }
+
+        .feedback li.happy div {
+            --step-1-rx: 18deg;
+            --step-1-ry: 24deg;
+            --step-2-rx: 18deg;
+            --step-2-ry: -24deg;
+        }
+
+            .feedback li.happy div:before {
+                --sc: 0;
+            }
+
+            .feedback li.happy div:after {
+                --b: var(--m, var(--normal-mouth));
+                --l: 11px;
+                --t: 23px;
+                --w: 18px;
+                --h: 8px;
+                --br: 0 0 8px 8px;
+            }
+
+            .feedback li.happy div svg.eye {
+                --t: 14px;
+                --sc: -1;
+            }
+
+        .feedback li.happy.active div:after {
+            --middle-s-x: 0.95;
+            --middle-s-y: 0.75;
+            animation: toggle 0.8s linear forwards;
+        }
+
+        .feedback li:not(.active) {
+            cursor: pointer;
+        }
+
+            .feedback li:not(.active):active {
+                transform: scale(0.925);
+            }
+
+        .feedback li.active {
+            --sb: var(--active);
+            --sh: var(--active-shadow);
+            --m: var(--active-mouth);
+            --e: var(--active-eye);
+        }
+
+            .feedback li.active div {
+                animation: shake 0.8s linear forwards;
+            }
+
+@keyframes shake {
+    30% {
+        transform: perspective(240px) rotateX(var(--step-1-rx, 0deg)) rotateY(var(--step-1-ry, 0deg)) rotateZ(var(--step-1-rz, 0deg)) translateZ(10px);
+    }
+
+    60% {
+        transform: perspective(240px) rotateX(var(--step-2-rx, 0deg)) rotateY(var(--step-2-ry, 0deg)) rotateZ(var(--step-2-rz, 0deg)) translateZ(10px);
+    }
+
+    100% {
+        transform: perspective(240px) translateZ(4px);
+    }
+}
+
+@keyframes tear {
+    0% {
+        opacity: 0;
+        transform: translateY(-2px) scale(0) translateZ(0);
+    }
+
+    50% {
+        transform: translateY(12px) scale(0.6, 1.2) translateZ(0);
+    }
+
+    20%, 80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(24px) translateX(4px) rotateZ(-30deg) scale(0.7, 1.1) translateZ(0);
+    }
+}
+
+@keyframes toggle {
+    50% {
+        transform: translateY(var(--middle-y, 0)) scale(var(--middle-s-x, var(--middle-s, 1)), var(--middle-s-y, var(--middle-s, 1))) rotate(var(--middle-r, 0deg));
+    }
+}
+
+@keyframes angry {
+    40% {
+        background: var(--active);
+    }
+
+    45% {
+        box-shadow: inset 3px -3px 4px var(--active-shadow), inset 0 8px 10px var(--active-shadow-angry);
+    }
+}
+
+
+    body .dribbble {
+        position: fixed;
+        display: block;
+        right: 20px;
+        bottom: 20px;
+    }
+
+        body .dribbble img {
+            display: block;
+            height: 28px;
+        }
+
+    body .twitter {
+        position: fixed;
+        display: block;
+        right: 64px;
+        bottom: 14px;
+    }
+
+        body .twitter svg {
+            width: 32px;
+            height: 32px;
+            fill: #1da1f2;
+        }
+.feedback-input {
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    background-color: transparent;
+    border: 2px solid #CC6666;
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+    .feedback-input:focus {
+        border: 2px solid #CC4949;
+    }
+
+textarea {
+    height: 150px;
+    line-height: 150%;
+    resize: vertical;
+}
+
+[type="submit"] {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 100%;
+    background: #CC6666;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: all 0.3s;
+    margin-top: -4px;
+    font-weight: 700;
+}
+
+    [type="submit"]:hover {
+        background: #CC4949;
+    }

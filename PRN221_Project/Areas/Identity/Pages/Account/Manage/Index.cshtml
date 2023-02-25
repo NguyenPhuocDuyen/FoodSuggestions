@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Thông tin cơ bản";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<form id="profile-form" method="post" enctype="multipart/form-data">
+    <div class="row col-auto">
+        <br />
+        <hr />
+        <div class="col-md-12 text-center"><h1>@ViewData["Title"]</h1></div>
+        <div class="col-md-6">
+            <div class="container h-100 d-flex justify-content-center">
+                <div class="profile-pic-div">
+                    <img id="profilePicture" style="width:350px;height:350px; object-fit:cover" src="@Model.UserInfo.UserImage">
+                    <input asp-for="Input.ImageFile" id="file" hidden>
+                    <label for="file" class="preview" id="uploadBtn">Cập nhật</label>
+                    <span asp-validation-for="UserInfo.UserImage" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-floating">
+                <label asp-for="Username" class="form-label"></label>
+                <input asp-for="Username" class="form-control" disabled />
+            </div>
+            <div class="form-floating">
+                <label asp-for="UserInfo.LastName" class="form-label"></label>
+                <input asp-for="UserInfo.LastName" class="form-control" />
+            </div>
+
+            <div class="form-floating">
+                <label asp-for="UserInfo.FirstName" class="form-label"></label>
+                <input asp-for="UserInfo.FirstName" class="form-control" />
+            </div>
+            <div class="form-floating">
+                <label asp-for="UserInfo.Address" class="form-label"></label>
+                <input asp-for="UserInfo.Address" class="form-control" />
+            </div>
+            <div class="form-floating">
+                <label asp-for="UserInfo.Birthday" class="form-label"></label>
+                <input asp-for="UserInfo.Birthday" class="form-control" />
+            </div>
+            <div class="form-floating">
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+            </div>
+            <br />
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Cập nhật thông tin</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/displayimageupload.js" asp-append-version="true"></script>
+}

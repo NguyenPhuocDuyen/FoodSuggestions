@@ -1,0 +1,1 @@
+Thư mục này chứa các Page của user vui lòng tạo page theo cú pháp User/tênobj/tênfile.cshtml

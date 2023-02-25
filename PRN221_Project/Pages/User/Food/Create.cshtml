@@ -1,0 +1,75 @@
+﻿@page
+@model PRN221_Project.Pages.User.Food.CreateModel
+@{
+    ViewData["Title"] = "Thêm món ăn";
+}
+
+<div class="cart-table-area clearfix section-padding-100">
+    <div class="text-center">
+        <section class="book_section layout_padding">
+            <div class="container">
+                <div class="heading_container">
+                    <h2>
+                        Thêm Món Ăn
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form_container">
+                            <form method="post" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div>
+                                    @*<input type="text" class="form-control" placeholder="Tên món ăn" />*@
+                                    <input asp-for="Food.Name" class="form-control" placeholder="Tên món ăn" />
+                                    <span asp-validation-for="Food.Name" class="text-danger"></span>
+                                </div>
+                                <div class="">
+                                    <label asp-for="Food.RestaurantId" class="">Chọn Nhà Hàng</label>
+                                    <select id="ddlRestaurants" asp-for="Food.RestaurantId" class ="form-control nice-select wide" asp-items="@ViewBag.Restaurants"></select>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @*<input type="number" min="1" class="form-control" placeholder="Giá" />*@
+                                        <input asp-for="Food.Price" class="form-control" placeholder="Giá" />
+                                        <span asp-validation-for="Food.Price" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        @*<input type="file" class="form-control" placeholder="Hình ảnh" />*@
+                                        <input asp-for="FileUpload" class="form-control" placeholder="Hình ảnh"/>
+                                        <span asp-validation-for="FileUpload" class="text-danger">@ViewData["mess"]</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <textarea class="w-100 k2" asp-for="Food.Description" placeholder=" Mô tả"></textarea>
+                                    <span asp-validation-for="Food.Description" class="text-danger"></span>
+                                </div>
+                                <div>
+                                    <a class="nav-link text-dark" asp-page="/User/Restaurant/Create"> + Thêm Nhà Hàng</a>
+                                </div>
+                                <div class="btn_box">
+                                    <button>Thêm món ăn</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    @*<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            $("#ddlRestaurants").select2();
+        });   
+    </script>*@
+}
+

@@ -1,0 +1,1 @@
+Thư mục này chứa các Page của Admin vui lòng tạo page theo cú pháp Admin/tênobj/tênfile.cshtml

@@ -1,0 +1,90 @@
+﻿@page
+@model PRN221_Project.Pages.User.ProfileModel
+@{
+}
+
+<div class="cart-table-area section-padding-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="checkout_details_area mt-50 clearfix">
+                    <div class="cart-title">
+                        <h2>Xem và thay đổi thông tin cá nhân</h2>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <input asp-for="UserAccount.Email" readonly placeholder="Email" class="form-control" />
+                                <span asp-validation-for="UserAccount.Email" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="UserAccount.LastName" placeholder="Họ" class="form-control" />
+                                <span asp-validation-for="UserAccount.LastName" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="UserAccount.FirstName" placeholder="Tên" class="form-control" />
+                                <span asp-validation-for="UserAccount.FirstName" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <input asp-for="UserAccount.Address" placeholder="Địa chỉ" class="form-control  mb-3" />
+                                <span asp-validation-for="UserAccount.Address" class="text-danger"></span>
+                            </div>
+                            @*<div class="col-md-6 mb-3">
+                                <select class="w-100 "  id="gender">
+                                <option value="male" selected>Nam</option>
+                                <option value="famale">Nữ</option>
+                                </select>
+                            </div>*@
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="UserAccount.PhoneNumber" type="number" min="100000000" max="99999999999" placeholder="Số điện thoại" class="form-control  mb-3" />
+                                <span asp-validation-for="UserAccount.PhoneNumber" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="UserAccount.Birthday" class="form-control  mb-3" />
+                                <span asp-validation-for="UserAccount.Birthday" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3 align-self-center">
+                                <label asp-for="FileUpload" class="control-label"></label>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="FileUpload" class="form-control" />
+                                <span asp-validation-for="FileUpload" class="text-danger"></span>
+                            </div>
+                            <div class="cart-btn col-md-6 mb-3">
+                                <button type="submit" class="btn amado-btn w-100">Xác nhận thay đổi thông tin</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="cart-summary">  
+                    <div class="cart-title">
+                        <h2>Nếu muốn đặt mật khẩu mới</h2>
+                    </div>
+                    <form action="#" method="post">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <input type="email" class="form-control" id="password" required placeholder="Nhập mật khẩu mới" value="">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <input type="email" class="form-control" id="passwordagain" required placeholder="Nhập lại mật khẩu mới" value="">
+                            </div>
+                            <div class="cart-btn col-12 mb-3">
+                                <a href="#" class="btn amado-btn w-100">Xác nhận thay đổi mật khẩu</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

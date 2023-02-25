@@ -1,0 +1,91 @@
+﻿@page
+@model PRN221_Project.Pages.Admin.FoodReportModel
+@{
+}
+<div class="cart-table-area clearfix section-padding-100">
+    <!-- List feed back-->
+    <section>
+        <div class="container">
+            <div class="khanh_row">
+                <div class="khanh_comments">
+                    <br />
+                    <br />
+                    <h1>Báo cáo món ăn</h1>
+                    @foreach (var item in Model.Reports)
+                    {
+                        <div class="row">
+                            <div class="col-sm-1 mb-0">
+                                <img src="@item.User.UserImage" alt="" class="rounded-circle" width="50" height="50">
+                            </div>
+                            <div class="col-sm-2 mb-0">
+                                    <h4>@item.User.LastName @item.User.FirstName</h4>
+                            </div>
+                            <div class="col-sm-2 mb-0">
+                                <p>Báo cáo về món :</p>
+                            </div>
+                            <div class="col-sm-2 mb-0">
+                                <span>@item.Food.Name</span>
+                            </div>
+                            <div class="col-sm-2 mb-0">
+                                <span>vào lúc @item.Date.ToString("dd/MM/yyyy HH:dd")</span>
+                            </div>
+                            <div class="col-sm-3 mb-0">
+                                <form asp-page-handler="Delete">
+                                    <input type="number" name="foodId" value="@item.FoodId" hidden/>
+                                    <input type="text" name="userId" value="@item.UserId" hidden/>
+                                    <button class="khanh_button red" type="submit" id='top'> Xoá </button>
+                                </form>
+                                <form asp-page-handler="Accept">
+                                    <input type="number" name="foodId" value="@item.FoodId" hidden/>
+                                    <input type="text" name="userId" value="@item.UserId" hidden/>
+                                    <button class="khanh_button green" id='bottom'> Duyệt </button>
+                                </form>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="k1">
+                            <p>Lý do: @item.Reason</p>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                    }
+                </div>
+            </div>
+        </div>
+        @*paging*@
+        @{
+            var prevDisabled = !Model.Reports.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.Reports.HasNextPage ? "disabled" : "";
+        }
+        <div class="row">
+            <div class="col-10">
+                <!-- Pagination -->
+                <nav aria-label="navigation">
+                    <ul class="pagination justify-content-end mt-50">
+                        <li class="page-item active">
+                            <a asp-page="./Index"
+                            asp-route-pageIndex="@(Model.Reports.PageIndex -1)"
+                            class="btn btn-primary @prevDisabled">
+                            Previous
+                        </a>
+                        @*<a class="page-link" href="#">01.</a>*@
+                        </li>
+                        <li class="page-item">
+                            <a asp-page="./Index"
+                               asp-route-pageIndex="@(Model.Reports.PageIndex + 1)"
+                               class="btn btn-primary @nextDisabled">
+                                Next
+                            </a>
+                            @*<a class="page-link" href="#">02.</a>*@
+                        </li>
+                        @*<li class="page-item"><a class="page-link" href="#">03.</a></li>
+                        <li class="page-item"><a class="page-link" href="#">04.</a></li>
+                        <li class="page-item"><a class="page-link" href="#">05.</a></li>
+                        <li class="page-item"><a class="page-link" href="#">06.</a></li>*@
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+</div>

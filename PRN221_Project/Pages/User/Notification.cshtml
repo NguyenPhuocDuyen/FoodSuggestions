@@ -1,0 +1,58 @@
+﻿@page
+@model PRN221_Project.Pages.User.NotificationModel
+@{
+
+    <div class="cart-table-area section-padding-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-12">
+                    <div class="cart-title mt-50">
+                        <h2>Trang thông báo</h2>
+                    </div>
+                    <div class="cart-table clearfix">
+                        <table class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Loại thông báo</th>
+                                    <th>Thời gian</th>
+                                    <th>Nội dung</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @for(var i=0;i<10;i++){
+                                <tr>
+                                    <td class="cart_product_img">
+                                        <a href="#"><img src="~/img/bg-img/1.jpg" alt="Product" class="img_k_nocitification"></a>
+                                    </td>
+                                    <td class="cart_product_desc">
+                                        <h5>Vừa có bình luận mới</h5>
+                                    </td>
+                                    <td class="price">
+                                        <span>20/2/2022</span>
+                                    </td>
+                                     <td class="price">
+                                        <span>1>------ Build started: Project: PRN221_Project, Configuration: Debug Any CPU ------1 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========</span>
+                                    </td>
+                                </tr>}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+}

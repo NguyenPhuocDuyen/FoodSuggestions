@@ -1,0 +1,105 @@
+﻿@page 
+@model PRN221_Project.Pages.User.Food.IndexModel
+@{
+    ViewData["Title"] = "Món Ăn";
+}
+<div class="products-catagories-area section-padding-100 clearfix">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 col-lg-3 col-md-3">
+                <div class="btn cart-btn col-12">
+                    <a class="btn amado-btn w-100" 
+                    asp-page="./Index"
+                    asp-route-sortOrder="@Model.CurrentSort"
+                    asp-route-pageIndex="@(Model.FoodList.PageIndex)"
+                    asp-route-currentPage="@Model.CurrentFilter"
+                    asp-route-privateFoodStore="false">
+                        Public Food
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3 col-md-3">
+                <div class="btn cart-btn col-12">
+                    <a class="btn amado-btn w-100" 
+                    asp-page="./Index"
+                    asp-route-sortOrder="@Model.CurrentSort"
+                    asp-route-pageIndex="@(Model.FoodList.PageIndex)"
+                    asp-route-currentPage="@Model.CurrentFilter"
+                    asp-route-privateFoodStore="true">
+                        Private Food
+                    </a>
+                </div>
+            </div>
+            <div class="col-10 col-lg-5 col-md-5">
+                <div style="margin-top: 13px; margin-left: 15px;">
+                    <form asp-page="./Index" method="get">
+                        <input class="col-8 bd-10" style="outline: auto; padding: 13px;" type="text" name="SearchString" value="@Model.CurrentFilter" /> 
+                            <input hidden type="text" name="privateFoodStore" value="@Model.FoodList"/> 
+                        <input class="btn col-3" style="margin-left:10px; background-color: #FFB200; padding: 10px; font-size: 20px" type="submit" value="Search"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+        <h1>@ViewData["userID"]</h1>
+        <br />
+    @if (Model.FoodList.Count != 0)
+    {
+        <div class="amado-pro-catagory clearfix">
+            <!-- Single Catagory -->
+        @foreach (var item in Model.FoodList)
+        {
+            <div class="single-products-catagory clearfix">
+                <a href="/User/Food/Details?id=@item.Id">
+                    <img src=@item.FoodImage alt="">
+                    <!-- Hover Content -->
+                    <div class="hover-content">
+                        <div class="line"></div>
+                        <p>Giá @item.Price VND</p>
+                        <h4>@item.Name</h4>
+                        <p>Địa chỉ: @item.Restaurant.Address</p>
+                    </div>
+                </a>
+            </div>
+        }
+        </div>
+    }
+    else
+    {
+        <h1>Không có món ăn nào.</h1>
+    }
+    @{
+        var prevDisabled = !Model.FoodList.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.FoodList.HasNextPage ? "disabled" : "";
+    }
+
+    @*paging*@
+    @if (Model.FoodList != null)
+    { 
+        <div class="row">
+            <div class="col-12 mt-10 row">
+                <!-- Pagination -->
+                <nav aria-label="navigation">
+                    <div style="margin-left: 30px">
+                        <a style="width: 80px" asp-page="./Index"
+                        asp-route-sortOrder="@Model.CurrentSort"
+                        asp-route-pageIndex="@(Model.FoodList.PageIndex -1)"
+                        asp-route-currentFilter="@Model.CurrentFilter"
+                        asp-route-privateFoodStore="@Model.PrivateFoodStore"
+                        class="btn btn-outline-primary @prevDisabled">
+                            Trước
+                        </a>
+                        <a style="width: 80px" asp-page="./Index"
+                        asp-route-sortOrder="@Model.CurrentSort"
+                        asp-route-pageIndex="@(Model.FoodList.PageIndex + 1)"
+                        asp-route-currentFilter="@Model.CurrentFilter"
+                        asp-route-privateFoodStore="@Model.PrivateFoodStore"
+                        class="btn btn-outline-primary @nextDisabled">
+                            Sau
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    }
+</div>

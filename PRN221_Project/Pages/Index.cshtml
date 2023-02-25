@@ -1,0 +1,216 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+<div class="cart-table-area clearfix section-padding-100">
+<section id="main">
+    @*<div class="carousel-content">
+        <div class="carousel-item">
+                <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg" alt="" />
+        </div>
+        <div class="carousel-button">
+            <a href="javascript:void(0)" class="button-get-started">Contact Us</a>
+        </div>
+    </div>*@
+    <div class="list-level">
+        <div class="list-item">
+            <a>
+                <i class="fa-brands fa-product-hunt"></i>
+                <h4>Sản Phẩm</h4>
+                <p class="list-description">Ngon nhức nách</p>
+            </a>
+        </div>
+        <div class="list-item">
+            <a>
+                <i class="fa-solid fa-calculator"></i>
+                <h4>Giá</h4>
+                <p class="list-description">Tuỳ vào túi tiền</p>
+            </a>
+        </div>
+        <div class="list-item">
+            <a>
+                <i class="fa-solid fa-percent"></i>
+                <h4>Khuyến mãi</h4>
+                <p class="list-description">Chỉ có gợi ý hoi</p>
+            </a>
+        </div>
+        <div class="list-item">
+            <a>
+                <i class="fa-solid fa-globe"></i>
+                <h4>Địa điểm</h4>
+                <p class="list-description">Toàn quốc nhe</p>
+            </a>
+        </div>
+        <div class="list-item">
+            <a>
+                <i class="fa-solid fa-people-group"></i>
+                <h4>Mọi người</h4>
+                <p class="list-description">Chung tay đóng góp</p>
+            </a>
+        </div>
+    </div>
+</section>
+<section id="about">
+    <div class="about-content">
+        <div class="about-content-left">
+                <img src="/img/bg-img/foodbg.jpg" alt="" />
+            @*<a href="javascript:void(0)">Book a meeting</a>*@
+        </div>
+        <div class="about-content-right">
+            <h2>
+                Chúng tôi là <br />
+                <span style="color: orange"><i>Người hỗ trợ cái bụng của bạn</i></span>
+            </h2>
+            <p>
+                Khi bạn không biết ăn gì thì hãy thưởng thức món ăn quanh bạn. 
+                Tất cả món ăn đều là mọi chia sẽ với nhau tạo nên một kho lưu trữ món ăn ngon khổng lồ. 
+                Từ đó bạn sẽ có món ăn cho mình.
+            </p>
+        </div>
+    </div>
+</section>
+@*<section id="our-clients">
+    <div class="our-clients-header">
+        <h2>OUR <span>CLIENTS</span></h2>
+    </div>
+    <div class="our-clients-carousel">
+        <div class="our-clients-slide">
+            <a href="javascript:void(0)">
+                <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg" alt="" />
+            </a>
+        </div>
+        <div class="our-clients-slide">
+            <a href="javascript:void(0)">
+                <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg" alt="" />
+            </a>
+        </div>
+        <div class="our-clients-slide">
+            <a href="javascript:void(0)">
+                <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg" alt="" />
+            </a>
+        </div>
+        <div class="our-clients-slide">
+            <a href="javascript:void(0)">
+                <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg" alt="" />
+            </a>
+        </div>  
+        <div class="our-clients-slide">
+            <a href="javascript:void(0)">
+                <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg" alt="" />
+            </a>
+        </div>
+    </div>
+</section>*@
+<br />
+<section id="achievements" style="background: url(/img/bg-img/fooddefault4.jpg)">
+    <h1>THỐNG KÊ</h1>
+    <p class="achievements-description">
+        Bạn có thể xem một số thống kê dưới đây
+    </p>
+    <div class="achievements-list">
+        <div class="achievements-item">
+            <i class="fa-solid fa-earth-americas"></i>
+            <h2>@Model.NumberOfFollow</h2>
+            <h6>Lượt theo dõi món ăn</h6>
+        </div>
+        <div class="achievements-item">
+            <i class="fa-solid fa-flag"></i>
+            <h2>@Model.NumberOfReport</h2>
+            <h6>Báo cáo nâng cao chất lượng</h6>
+        </div>
+        <div class="achievements-item">
+            <i class="fa-solid fa-user-group"></i>
+            <h2>@Model.NumberOfUsers</h2>
+            <h6>Người dùng</h6>
+        </div>
+        <div class="achievements-item">
+            <i class="fa-solid fa-briefcase"></i>
+            <h2>@Model.NumberOfFoods</h2>
+            <h6>Món ăn</h6>
+        </div>
+    </div>
+</section>
+@*<section id="form">
+    <div class="form-left">
+        <h1>
+            LET'S MAKE <span style="color: orange">GREAT</span> THINGS TOGETHER
+        </h1>
+    </div>
+    <div class="form-right">
+        <a href="javascript:void(0)">Start a project</a>
+    </div>
+</section>*@
+<section id="top-courses">
+    <div     class="top-courses-header">
+        <h1>Top các món ăn mới nhất</h1>
+        @*<select name="courses" id="courses">
+            <option value="1">Release date (newest first)</option>
+            <option value="2">Release date (oldest first)</option>
+            <option value="3">Overall Rating</option>
+            <option value="4">Popular (most viewed)</option>
+        </select>*@
+    </div>
+    <div class="top-courses-list">
+        @foreach (var item in Model.Foods)
+        {
+            <div class="top-courses-item">
+                <div class="top-courses-container">
+                    <div class="top-courses-banner">New</div>
+                    <a href="/User/Food/Details?id=@item.Id">
+                        <img src="@item.FoodImage" alt="" class="top-courses-item-img" />
+                    </a>
+                    <span class="top-courses-type">Địa chỉ: @item.Restaurant.Address</span>
+                    <h3 class="top-courses-name">@item.Name</h3>
+                    <div class="top-courses-footer">
+                        <div class="top-courses-footer-left">
+                            <i class="fa-regular fa-clock"></i> @((DateTime.Now - item.Date_Create).Days) Ngày  
+                                @((DateTime.Now - item.Date_Create).Hours) giờ trước
+                        </div>
+                        <div class="top-courses-footer-right">@item.Price VND</div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+<section id="masterstudy-blog">
+    <h2>BLOG của chúng tôi</h2>
+    <div class="masterstudy-blog-carousel">
+        @for (var i = 1; i <= 5; i++)
+        {
+            string srcImg = "/img/bg-img/"+@i+".jpg"; 
+            <div class="masterstudy-blog-slide">
+                <img src="@srcImg" alt="" />
+                <div class="masterstudy-blog-container">
+                    <div class="masterstudy-blog-left">
+                        <div class="masterstudy-blog-date">
+                            <span class="masterstudy-blog-day">@i</span>
+                            <span class="masterstudy-blog-month">July</span>
+                        </div>
+                        <div class="masterstudy-blog-comment">
+                            3 <i class="fa-regular fa-message"></i>
+                        </div>
+                    </div>
+                    <div class="masterstudy-blog-right">
+                        <a href="" class="masterstudy-blog-title">Those Other College Expenses You Aren’t Thinking About</a>
+                        <p class="masterstudy-blog-description">
+                            Thousands of teenagers across the UK will have school lessons in
+                            mindfulness in an experiment designed to see if it can protect
+                            against mental illness.
+                        </p>
+                        <hr />
+                        <div class="masterstudy-blog-posted">
+                            Posted in: <a href="javascript:void(0)">Adverisement</a>
+                        </div>
+                        <div class="masterstudy-blog-tags">
+                            Tags: <a href="javascript:void(0)">Adverisement</a> ,<a href="javascript:void(0)">Adverisement</a>
+                            ,<a href="javascript:void(0)">Adverisement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+</div>

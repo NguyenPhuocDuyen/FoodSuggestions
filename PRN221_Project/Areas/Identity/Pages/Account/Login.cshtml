@@ -1,0 +1,82 @@
+﻿@page
+@model LoginModel
+
+@{
+    Layout = "_LayoutLogin";
+    ViewData["Title"] = "Đăng Nhập";
+}
+
+
+<form method="post" class="login100-form validate-form">
+    <span class="login100-form-title p-b-49">
+        Đăng nhập
+    </span>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="wrap-input100 validate-input m-b-23" data-validate="Vui lòng điền Email">
+        <label class="label-input100" asp-for="Input.Email"></label>
+        <input class="input100" asp-for="Input.Email" placeholder="Email">
+        <span class="focus-input100" data-symbol="&#xf206;"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Vui lòng điền mật khẩu">
+        <label class="label-input100" asp-for=" Input.Password"></label>
+        <input class="input100" asp-for="Input.Password" placeholder="Mật khẩu">
+        <span class="focus-input100" data-symbol="&#xf206;"></span>
+    </div>
+
+    <div style="margin-top:0.5em;padding:0;user-select:none;">
+        <label asp-for="Input.RememberMe">
+            <input asp-for="Input.RememberMe" />
+            @Html.DisplayNameFor(m => m.Input.RememberMe)
+        </label>
+    </div>
+
+    <div class="text-right p-t-8 p-b-31">
+        <a asp-page="./ForgotPassword">
+            Quên mật khẩu?
+        </a>
+    </div>
+
+    <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn" type="submit">Đăng nhập</button>
+        </div>
+    </div>
+
+    <div class="txt1 text-center p-t-30 p-b-20">
+        <span>
+            Hoặc đăng nhập với
+        </span>
+    </div>
+
+    <div class="flex-c-m">
+        <a href="#" class="login100-social-item bg1">
+            <i class="fa fa-facebook"></i>
+        </a>
+
+        <a href="#" class="login100-social-item bg2">
+            <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="#" class="login100-social-item bg3">
+            <i class="fa fa-google"></i>
+        </a>
+    </div>
+
+    <div class="flex-col-c p-t-20">
+        <span class="txt1 p-b-17">
+            Bạn không có tài khoản?
+        </span>
+
+        <a asp-page="./Register" class="txt2">
+            Đăng ký
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    }

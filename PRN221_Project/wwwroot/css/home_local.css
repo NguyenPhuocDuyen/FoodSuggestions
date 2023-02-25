@@ -1,0 +1,615 @@
+﻿
+/* CSS For Main */
+
+.main-content-wrapper {
+    overflow: hidden;
+}
+
+#main {
+    max-width: 100%;
+}
+
+    #main .carousel-content {
+        width: 100%;
+        height: 100%;
+    }
+
+        #main .carousel-content .carousel-item img {
+            width: 100%;
+/*            height: 100vh;*/
+        }
+
+        #main .carousel-content .carousel-button {
+            width: 100%;
+            margin-top: -10rem;
+            position: absolute;
+            top: 100%;
+            left: 4.5rem;
+        }
+
+            #main .carousel-content .carousel-button .button-get-started {
+                padding: 20px 30px;
+                border: 1px solid orange;
+                border-radius: 15px;
+                font-weight: 700;
+                font-size: 18px;
+                color: orange;
+                background-color: #fff;
+                width: 100%;
+                text-align: center;
+            }
+
+                #main .carousel-content .carousel-button .button-get-started:hover {
+                    border: 1px solid #fff;
+                    color: #fff;
+                    background-color: orange;
+                }
+
+    #main .list-level {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: -5rem;
+        margin-bottom: 5rem;
+    }
+
+        #main .list-level .list-item {
+            width: 20%;
+            height: 30vh;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 15px;
+            animation: re-translating 0.5s ease-in-out;
+        }
+
+@keyframes re-translating {
+    0% {
+        transform: translate(0, -20px);
+    }
+
+    100% {
+        transform: translate(0, 0px);
+    }
+}
+
+@keyframes translating {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(0, -20px);
+    }
+}
+
+#main .list-level .list-item:nth-child(1) {
+    background-color: #BFB051;
+}
+
+#main .list-level .list-item:nth-child(2) {
+    background-color: #6155A6;
+}
+
+#main .list-level .list-item:nth-child(3) {
+    background-color: #D35D6E;
+}
+
+#main .list-level .list-item:nth-child(4) {
+    background-color: #EEBB4D;
+}
+
+#main .list-level .list-item:nth-child(5) {
+    background-color: #383E56;
+}
+
+#main .list-level .list-item:hover {
+    animation: translating 0.5s ease-in-out;
+    transform: translate(0, -20px);
+}
+
+#main .list-level .list-item i {
+    font-size: 4rem;
+    color: #fff;
+}
+
+#main .list-level .list-item h4 {
+    font-size: 24px;
+    color: #fff;
+}
+
+#main .list-level .list-item p {
+    text-transform: capitalize;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* CSS Section About */
+#about {
+    width: 100%;
+/*    min-height: 100vh;*/
+}
+
+    #about .about-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+        #about .about-content .about-content-left,
+        #about .about-content .about-content-right {
+            width: 50%;
+        }
+
+            #about .about-content .about-content-left img {
+                width: 100%;
+            }
+
+            #about .about-content .about-content-left a {
+                padding: 1rem 2rem;
+                color: orange;
+                font-weight: 700;
+                text-transform: uppercase;
+                border-radius: 15px;
+                border: 2px solid #fff;
+                position: relative;
+                background-color: rgba(0, 0, 0, 0.7);
+                top: -3rem;
+                left: 17rem;
+            }
+
+        #about .about-content .about-content-right {
+            padding: 0 5rem;
+        }
+
+            #about .about-content .about-content-right h2 {
+                padding: 0 0 3rem 0;
+                font-size: 2rem;
+            }
+
+/* CSS Section OUR CLIENTS */
+
+#our-clients {
+/*    min-height: 50vh;*/
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+    background-color: rgb(235, 235, 235);
+}
+
+    #our-clients .our-clients-header h2 {
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+        #our-clients .our-clients-header h2 span {
+            opacity: 0.4;
+        }
+
+.our-clients-carousel {
+    width: 90%;
+    margin: 0px auto;
+}
+
+.our-clients-slide {
+    margin: 10px;
+}
+
+.our-clients-slide {
+    width: 10rem;
+    height: 10rem;
+    background-color: #fff;
+}
+
+    .our-clients-slide img {
+        width: 100%;
+        height: 100%;
+        min-height: 10rem;
+        border: 2px solid #fff;
+    }
+
+/* .our-clients-slide h3 {
+    margin: 2px;
+    font-size: 16px;
+}
+
+.our-clients-slide .our-clients-description {
+    margin: 2px;
+    font-size: 14px;
+    opacity: 0.6;
+} */
+
+/* CSS Button Next and Prev */
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: 40%;
+    z-index: 2;
+    padding: 20px;
+    border-radius: 25%;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+    .slick-prev i,
+    .slick-next i {
+        font-size: 20px;
+    }
+
+.slick-prev {
+    left: -20px;
+}
+
+.slick-next {
+    right: -20px;
+}
+
+/* CSS Achievements */
+
+#achievements {
+    width: 100%;
+    height: 100vh;
+    background: url(https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    #achievements h1 {
+        color: #fff;
+        font-size: 42px;
+        text-align: center;
+        padding-top: 5rem;
+    }
+
+    #achievements .achievements-description {
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+        padding-top: 5rem;
+    }
+
+    #achievements .achievements-list {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 5rem;
+        text-align: center;
+    }
+
+        #achievements .achievements-list .achievements-item i {
+            font-size: 72px;
+            color: #fff;
+        }
+
+        #achievements .achievements-list .achievements-item h2 {
+            color: orange;
+            font-size: 40px;
+            margin: 10px 0;
+        }
+
+        #achievements .achievements-list .achievements-item h6 {
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+/* CSS FORM SUB */
+
+#form {
+    width: 100%;
+    height: 40vh;
+    background-color: #0b2750;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+    #form .form-left {
+        width: 60%;
+        color: #fff;
+        padding-left: 7vw;
+        padding-right: 3vw;
+    }
+
+    #form .form-right {
+        width: 40%;
+        color: #fff;
+        padding-right: 7vw;
+        text-align: center;
+    }
+
+    #form .form-left h1 {
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 1.2px;
+        font-size: 2rem;
+        color: #fff;
+    }
+
+    #form .form-right a {
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 1.2px;
+        padding: 1rem 2rem;
+        color: #fff;
+        border: 3px solid orange;
+        border-radius: 25px;
+    }
+
+
+/* CSS TOP COURSES */
+
+#top-courses {
+    width: 100%;
+/*    min-height: 100vh;*/
+}
+
+    #top-courses .top-courses-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5rem;
+    }
+
+        #top-courses .top-courses-header h1 {
+            font-size: 42px;
+            opacity: 0.8;
+        }
+
+        #top-courses .top-courses-header #courses {
+            padding: 10px 20px;
+        }
+
+    #top-courses .top-courses-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+        #top-courses .top-courses-list .top-courses-item {
+            border: 1px solid #ccc;
+            width: 22%;
+            margin: 20px 10px;
+        }
+
+            #top-courses .top-courses-list .top-courses-item .top-courses-container {
+                position: relative;
+            }
+
+            #top-courses .top-courses-list .top-courses-item .top-courses-banner {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background-color: orange;
+                font-size: 12px;
+                padding: 5px 10px;
+                border-radius: 5%;
+                color: #fff;
+                text-transform: uppercase;
+            }
+
+            #top-courses .top-courses-list .top-courses-item img {
+                width: 100%;
+                height: 25vh;
+            }
+
+            #top-courses .top-courses-list .top-courses-item .top-courses-type {
+                margin: 20px;
+                font-size: 13px;
+                opacity: 0.5;
+            }
+
+            #top-courses .top-courses-list .top-courses-item .top-courses-name {
+                margin: 20px;
+                font-size: 16px;
+                letter-spacing: 1px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #ccc;
+            }
+
+            #top-courses .top-courses-list .top-courses-item .top-courses-footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 20px 20px 10px 20px;
+            }
+
+                #top-courses .top-courses-list .top-courses-item .top-courses-footer .top-courses-footer-left {
+                    font-size: 12px;
+                }
+
+                #top-courses .top-courses-list .top-courses-item .top-courses-footer .top-courses-footer-right {
+                    font-weight: 700;
+                }
+
+/* CSS MASTERSTUDY BLOG */
+
+#masterstudy-blog {
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 10rem;
+}
+
+    #masterstudy-blog h2 {
+        font-size: 42px;
+        padding: 5rem;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    #masterstudy-blog .masterstudy-blog-carousel {
+        margin: 0 3rem;
+    }
+
+        #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide {
+            margin: 10px;
+            width: 28vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide img {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+                #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-left {
+                    width: 20%;
+                }
+
+                #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-left {
+                    border: 2px solid orange;
+                    height: fit-content;
+                    width: fit-content;
+                    color: orange;
+                }
+
+                    #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-left .masterstudy-blog-date {
+                        display: flex;
+                        flex-direction: column;
+                        border-bottom: 2px solid orange;
+                        align-items: center;
+                        padding: 10px 5px;
+                    }
+
+                        #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-left .masterstudy-blog-date .masterstudy-blog-day {
+                            font-size: 22px;
+                        }
+
+                        #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-left .masterstudy-blog-date .masterstudy-blog-month {
+                            font-size: 14px;
+                        }
+
+                    #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-left .masterstudy-blog-comment {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        padding: 10px 5px;
+                        font-size: 12px;
+                    }
+
+                #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-right {
+                    width: 80%;
+                }
+
+                    #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-right .masterstudy-blog-title {
+                        padding-right: 0;
+                        font-weight: 1000;
+                        font-size: 18px;
+                        line-height: 22px;
+                        word-spacing: 0;
+                        color: #000;
+                    }
+
+                    #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-right .masterstudy-blog-description {
+                        margin: 0.5rem 0;
+                        font-size: 14px;
+                    }
+
+                    #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-right .masterstudy-blog-posted,
+                    #masterstudy-blog .masterstudy-blog-carousel .masterstudy-blog-slide .masterstudy-blog-container .masterstudy-blog-right .masterstudy-blog-tags {
+                        color: rgb(97, 97, 97);
+                        font-size: 12px;
+                    }
+
+@media only screen and (max-width: 768px) {
+    #main {
+        margin-top: 7rem;
+    }
+        #main .list-level .list-item {
+            min-height: 10rem;
+        }
+
+        #main .list-level .list-item h4 {
+            font-size: 14px;
+        }
+
+        #main .list-level .list-item i {
+            font-size: 3rem;
+        }
+
+        #main .list-level .list-item p {
+            font-size: 10px;
+        }
+
+        #main .list-level .list-item a {
+            padding: 1rem 0.5rem;
+        }
+
+        #about .about-content {
+            flex-direction: column;
+        }
+
+        #about .about-content .about-content-left, #about .about-content .about-content-right {
+            width: 100%;
+        }
+
+            #about .about-content .about-content-left a {
+                top: -3rem;
+                left: 40%;
+            }
+
+    .masterstudy-blog-right {
+        height: 250px;
+        overflow: scroll;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    #main .list-level {
+        display: none;
+    }
+
+    #our-clients {
+        min-height: 50vh;
+    }
+
+    .our-clients-slide img {
+        min-height: 6rem;
+        min-width: 6rem;
+    }
+
+    .achievements-item {
+        height: 200px;
+    }
+
+    #achievements .achievements-list .achievements-item i, #achievements .achievements-list .achievements-item h2 {
+        font-size: 24px;
+    }
+
+    #achievements .achievements-list .achievements-item h6 {
+        font-size: 14px;
+    }
+
+    #form .form-right a {
+        padding: 0.5rem;
+    }
+
+    #top-courses .top-courses-header {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-left: 7vw;
+    }
+
+    #top-courses .top-courses-list .top-courses-item {
+        width: 40%;
+    }
+}

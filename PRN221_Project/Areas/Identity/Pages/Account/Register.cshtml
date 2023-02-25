@@ -1,0 +1,69 @@
+﻿@page
+@model RegisterModel
+@{
+    Layout = "_LayoutLogin";
+    ViewData["Title"] = "Đăng Ký";
+}
+
+
+<form class="login100-form validate-form" method="post">
+    <span class="login100-form-title p-b-49">
+        Đăng Ký
+    </span>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="wrap-input100 validate-input m-b-23" data-validate="Vui lòng điền họ">
+        <label asp-for="Input.LastName" class="label-input100"></label>
+        <input class="input100" asp-for="Input.LastName" placeholder="Họ">
+        <span class="focus-input100" data-symbol="&#xf206;"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input m-b-23" data-validate="Vui lòng điền tên">
+        <label class="label-input100" asp-for="Input.FirstName"></label>
+        <input class="input100" asp-for="Input.FirstName" placeholder="Tên">
+        <span class="focus-input100" data-symbol="&#xf206;"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input m-b-23" data-validate="Vui lòng điền email">
+        <label class="label-input100" asp-for="Input.Email"></label>
+        <input class="input100" asp-for="Input.Email" placeholder="Email">
+        <span class="focus-input100" data-symbol="&#xf206;"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input m-b-23" data-validate="Vui lòng điền mật khẩu">
+        <label class="label-input100" asp-for="Input.Password"></label>
+        <input class="input100" asp-for="Input.Password" placeholder="Mật khẩu">
+        <span class="focus-input100" data-symbol="&#xf190;"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Vui lòng điền mật khẩu xác nhận">
+        <label class="label-input100" asp-for="Input.ConfirmPassword"></label>
+        <input class="input100" asp-for="Input.ConfirmPassword" placeholder="Xác nhận mật khẩu">
+        <span class="focus-input100" data-symbol="&#xf190;"></span>
+    </div>
+
+    <div class="container-login100-form-btn p-t-30">
+        <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn" type="submit">
+                Đăng ký
+            </button>
+        </div>
+    </div>
+
+    <div class="flex-col-c p-t-20">
+        <span class="txt1 p-b-17">
+            Bạn có tài khoản?
+        </span>
+
+        <a href="Login" class="txt2">
+            Đăng nhập
+        </a>
+    </div>
+</form>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    }

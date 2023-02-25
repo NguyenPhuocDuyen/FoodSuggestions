@@ -1,0 +1,201 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<Project.Models.User> SignInManager
+@inject UserManager<Project.Models.User> UserManager
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title  -->
+    <title>@ViewData["Title"] - YourMeal</title>
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="~/css/core-style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home_local.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/food_detail.css" asp-append-version="true" />
+    <!-- Này của Khuong mới thêm-->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css.map" asp-append-version="true" />
+
+    <!-- Font Family -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat"
+          rel="stylesheet" />
+
+    <!-- Fontawsome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" />
+
+    <!-- Slide -->
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+    <!-- Chat -->
+    <link rel="stylesheet" href="~/css/chat.css" asp-append-version="true" />
+
+</head>
+<body>
+    <!-- Search Wrapper Area Start -->
+    @*<div class="search-wrapper section-padding-100">
+        <div class="search-close">
+            <i class="fa fa-close" aria-hidden="true"></i>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-content">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search" placeholder="Type your keyword...">
+                            <button type="submit"><img src="~/img/core-img/search.png" alt=""></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <!-- Search Wrapper Area End -->
+    <!-- ##### Main Content Wrapper Start ##### -->
+    <div class="main-content-wrapper d-flex clearfix">
+
+        <!-- Mobile Nav (max width 767px)-->
+        <div class="mobile-nav">
+            <!-- Navbar Brand -->
+            <div class="amado-navbar-brand">
+                <a asp-page="#"><img src="~/img/core-img/yourmeal.jpg" alt=""></a>
+            </div>
+            <!-- Navbar Toggler -->
+            <div class="amado-navbar-toggler">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <!-- Header Area Start -->
+        <header class="header-area clearfix">
+            <!-- Close Icon -->
+            <div class="nav-close">
+                <i class="fa fa-close" aria-hidden="true"></i>
+            </div>
+            <!-- Logo -->
+            <div class="logo">
+                <a asp-page="#"><img src="~/img/core-img/yourmeal.jpg" alt=""></a>
+            </div>
+            <!-- Amado Nav -->
+            <nav class="amado-nav">
+                <ul>
+                    <li@* class="active"*@><a asp-page="/Index">Trang Chủ</a></li>
+                    <li><a asp-page="/User/Food/Create">Thêm Món Ăn</a></li>
+                    <li><a asp-page="/User/Food/Index">Món Ăn</a></li>
+                    <li><a asp-area="Identity" asp-page="/Account/Manage/Index">Hồ Sơ</a></li>
+                    <li><a asp-page="/Chat/Index">Chat</a></li>
+                </ul>
+            </nav>
+            @*<!-- Button Group -->
+            <div class="amado-btn-group mt-30 mb-100">
+            <a asp-page="#" class="btn amado-btn mb-15">%Discount%</a>
+            <a asp-page="#" class="btn amado-btn active">New this week</a>
+            </div>*@
+            <!-- Cart Menu -->
+            <div class="cart-fav-search mb-100">
+                @*<a asp-page="/User/Notification" class="notification-nav" style="font-size: 20px;"><i class="fa-regular fa-bell"></i> Thông Báo</a>*@
+                @*<a asp-page="/Admin/FoodReport" class="notification-nav" style="font-size: 20px;"><i class="fa-solid fa-flag"></i> Báo Cáo</a>*@
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a class="form-inline text-danger" asp-area="Identity" asp-page="/Account/Logout">
+                        Đăng xuất
+                    </a>
+                }
+            </div>
+        </header>
+        <!-- Header Area End -->
+        @RenderBody()
+    </div>
+
+    <footer class="footer_area clearfix">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Single Widget Area -->
+                <div class="col-12 col-lg-4">
+                    <div class="single_widget_area">
+                        <!-- Logo -->
+                        <div class="footer-logo mr-50">
+                            <a asp-page="#"><img src="~/img/core-img/yourmeal.jpg" alt=""></a>
+                        </div>
+                        <!-- Copywrite Text -->
+                        @*<p class="copywrite">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <script>document.write(new Date().toTimeString("dd/MM/yyyy"))</script>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>*@
+                    </div>
+                </div>
+                <!-- Single Widget Area -->
+                <div class="col-12 col-lg-8">
+                    <div class="single_widget_area">
+                        <!-- Footer Menu -->
+                        <div class="footer_menu">
+                            <nav class="navbar navbar-expand-lg justify-content-end">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+                                <div class="collapse navbar-collapse" id="footerNavContent">
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" asp-page="/Index">Trang Chủ</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-page="/User/Food/Create">Thêm Món Ăn</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-page="/User/Food/Index">Món Ăn</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">Hồ Sơ</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-page="/Chat/Index">Chat</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+    <!-- jQuery -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"></script>
+    <!-- Popper js -->
+    <script src="~/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="~/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="~/js/active.js"></script>
+    <!-- Home Local js -->
+    <script src="~/js/home_local.js"></script>
+    <!-- Food Detail -->
+    <script src="~/js/food_detail.js"></script>
+    <!-- SlickJs-->
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- Js nay Khuong moi them-->
+    <script src="~/js/custom.js"></script>
+    <!-- Chat -->
+    <script src="~/js/chat.js"></script>
+
+    <script src="~/js/site.js"></script>
+    <script src="~/js/active.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

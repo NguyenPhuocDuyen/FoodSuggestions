@@ -1,0 +1,28 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+    {
+        Layout = (string)parentLayout;
+    }
+    else
+    {
+        Layout = "/Pages/Shared/_Layout.cshtml";
+    }
+}
+
+<div class="cart-table-area clearfix section-padding-100">
+    <h1>Quản lý tài khoản</h1>
+    <h2>Thay đổi thông tin của bạn</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-12">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

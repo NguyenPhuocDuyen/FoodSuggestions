@@ -1,0 +1,259 @@
+﻿@page
+@model PRN221_Project.Pages.User.Food.DetailsModel
+@{
+}
+<div class="cart-table-area clearfix section-padding-100">
+    <div class="wrapper" style="background: url(@Model.Food.FoodImage)">
+        <div class="name">
+            @Model.Food.Price VND
+        </div>
+        <div class="content">
+            <h3>@Model.Food.Name</h3>
+            <p>Mô tả: @Model.Food.Description</p>
+            <div class="links">
+                @*<a href="http://blog.ajduke.in" target="_blank">http://blog.ajduke.in</a>
+                <a href="https://codepen.io/ajduke" target="_blank">https://codepen.io/ajduke</a>*@
+                <a href="" class="location">Địa chỉ: @Model.Food.Restaurant.Address</a>
+            </div>
+
+            <div class="stats">
+                <div class="block">
+                    <div class="num">@Model.Follow</div>
+                    <span class="text">Người theo dõi</span>
+                </div>
+                <div class="block">
+                    <div class="num">@Model.Feedbacks.Count</div>
+                    <span class="text">Đánh giá</span>
+                </div>
+                <div class="block">
+                    <div class="num">@Model.FoodEaten</div>
+                    <span class="text">Người đã ăn</span>
+                </div>
+            </div>
+            @{
+                var fou = ViewData["fou"] == null;
+                var fe = ViewData["fe"] == null;
+            }
+            <div class="stats row">
+                <div class="block col-6">
+                    @if(fe){
+                        <form asp-page-handler="Eaten">
+                            <input type="number" name="foodId" value="@Model.Food.Id" hidden />
+                            <button class="khanh_button" type="submit">Ăn</button>
+                        </form>
+                    }
+                </div>
+                <div class="block col-6">
+                    <form asp-page-handler="Follow">
+                        <input type="number" name="foodId" value="@Model.Food.Id" hidden />
+                        @if(fou){
+                            <input type="text" name="follow" value="true" hidden />
+                            <button style="font-size: 16px" class="khanh_button" type="submit">Theo dõi</button>
+                        } else {
+                            <input type="text" name="follow" value="false" hidden />
+                            <button style="font-size: 18px; min-width: 130px" class="khanh_button" type="submit">Bỏ theo dõi</button>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="feedback_form">
+    @if (!fe) { 
+        <h4>Đánh giá :</h4>
+        @*<ul class="feedback">
+            <li class="angry">
+                <div>
+                    <svg class="eye left">
+                        <use xlink:href="#eye">
+                    </svg>
+                    <svg class="eye right">
+                        <use xlink:href="#eye">
+                    </svg>
+                    <svg class="mouth">
+                        <use xlink:href="#mouth">
+                    </svg>
+                </div>
+            </li>
+            <li class="sad">
+                <div>
+                    <svg class="eye left">
+                        <use xlink:href="#eye">
+                    </svg>
+                    <svg class="eye right">
+                        <use xlink:href="#eye">
+                    </svg>
+                    <svg class="mouth">
+                        <use xlink:href="#mouth">
+                    </svg>
+
+                </div>
+            </li>
+            <li class="ok">
+                <div></div>
+            </li>
+            <li class="good">
+                <div>
+                    <svg class="eye left">
+                        <use xlink:href="#eye">
+                    </svg>
+                    <svg class="eye right">
+                        <use xlink:href="#eye">
+                    </svg>
+                    <svg class="mouth">
+                        <use xlink:href="#mouth">
+                    </svg>
+                </div>
+            </li>
+            <li class="happy active">
+                <div>
+                    <svg class="eye left">
+                        <use xlink:href="#eye">
+                    </svg>
+                    <svg class="eye right">
+                        <use xlink:href="#eye">
+                    </svg>
+                </div>
+            </li>
+        </ul>*@
+
+        @*<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 4" id="eye">
+                <path d="M1,1 C1.83333333,2.16666667 2.66666667,2.75 3.5,2.75 C4.33333333,2.75 5.16666667,2.16666667 6,1"></path>
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 7" id="mouth">
+                <path d="M1,5.5 C3.66666667,2.5 6.33333333,1 9,1 C11.6666667,1 14.3333333,2.5 17,5.5"></path>
+            </symbol>
+        </svg>*@
+        <form method="post">
+            <input hidden name="foodId" value="@Model.Food.Id" />
+
+            @*<input type="radio" name="star" id="star1" value=1 />
+            <label for="star1">1 Star</label>
+            <input type="radio" name="star" id="star2" value=2 />
+            <label for="star2">2 Star</label>
+            <input type="radio" name="star" id="star3" value=3 />
+            <label for="star3">3 Star</label>
+            <input type="radio" name="star" id="star4" value=4 />
+            <label for="star4">4 Star</label>
+            <input type="radio" name="star" id="star5" value=5 checked />
+            <label for="star5">5 Star</label>*@
+            
+            
+            <div class="rating">
+
+                <input type="radio" name="star" value="5" id="5" checked><label for="5">☆</label>
+                <input type="radio" name="star" value="4" id="4"><label for="4">☆</label>
+                <input type="radio" name="star" value="3" id="3"><label for="3">☆</label>
+                <input type="radio" name="star" value="2" id="2"><label for="2">☆</label>
+                <input type="radio" name="star" value="1" id="1"><label for="1">☆</label>
+
+            </div>
+
+            <br />
+            <input style="width: 16px; height: 16px" type="checkbox" name="isReport" id="report" value=true>
+            <label style="font-size: 20px" for="report">Click vào đây nếu bạn muốn báo cáo món ăn</label>
+
+            <textarea name="description" class="feedback-input" style="color: black;" placeholder="Comment"></textarea>
+            <input type="submit" value="Đánh giá / Báo cáo" />
+        </form>
+    }
+        <!-- List feed back-->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="comments">
+                        <br />
+                        <br />
+                        <h1>Đánh giá của người từng ăn</h1>
+                        <hr />
+                        @if (Model.Feedbacks.Count == 0)
+                        {
+                            <div>Chưa có đánh giá nào!</div>
+                        }
+                        else
+                        {
+                            @foreach (var item in Model.Feedbacks)
+                            {
+                                <div class="row">
+                                    <div class="col-1">
+                                        <img src="@item.User.UserImage" alt="Avt" class="rounded-circle" width="50" height="50">
+                                    </div>
+                                    <div class="col-11 col-md-3">
+                                        <h5>@item.User.LastName @item.User.FirstName</h5>
+                                    </div>
+                                    <div class="col-3 col-md-4">
+                                        <p>Cho: <span class="yellow">
+                                            @{
+                                                var s = "☆";
+                                            }
+                                            @for (var i = 0; i < item.Star; i++)
+                                            {
+                                                @s
+                                            }
+                                        </span></p>
+                                    </div>
+                                    <div class="col-3 col-md-4" style="margin-top: 10px;">
+                                        <span>Ngày: @item.Date</span>
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="k1">
+                                    <p>Nhận xét: @item.Description</p>
+                                </div>
+                                <br />
+                            }
+                        }
+                        @*
+                        <div class="row">
+                        <div class="col-md-0 mb-3">
+                        <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="50" height="50">
+                        </div>
+                        <div class="col-md-2 mb-3">
+                        <h4>Jhon Doe </h4>
+                        </div>
+                        <div class="col-md-0 mb-3">
+                        <p>Cảm thấy :</p>
+                        </div>
+                        <div class="col-md-1 mb-3">
+                        <ul class="feedback">
+
+                        <li class="angry active">
+                        <div>
+                        <svg class="eye left">
+                        <use xlink:href="#eye">
+                        </svg>
+                        <svg class="eye right">
+                        <use xlink:href="#eye">
+                        </svg>
+                        <svg class="mouth">
+                        <use xlink:href="#mouth">
+                        </svg>
+                        </div>
+                        </li>
+                        </ul>
+
+                        </div>
+                        <div class="col-md-3 mb-3">
+                        <span>- 20 October, 2018</span>
+                        </div>
+                        </div>
+                        <br />
+                        <div class="k1">
+                        <p>khuong khuong khuong khuong khuong khuong khuong khuon khuong khuong khuon gkhuon gkhuong khuong khuong khuong khuong  </p>
+                        </div>
+                        <br />
+                        *@
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
